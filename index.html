@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriNaMão - Controle de Refeições</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho com o nome do sistema e menu de navegação -->
+    <header>
+        <h1>NutriNaMão</h1>
+        <p>Meu Diário Alimentar e Registro de Refeições</p>
+        <nav>
+            <ul>
+                <li><a href="#cadastro">Cadastrar Alimento</a></li>
+                <li><a href="#listagem">Minhas Refeições</a></li>
+                <li><a href="#detalhes">Detalhes Nutricionais</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+
+        <!-- Formulário de Cadastro do Item Alimentar (Entidade Principal) -->
+        <section id="cadastro">
+            <h2>Cadastrar Novo Alimento</h2>
+            <form action="#" method="post">
+                <div>
+                    <label for="nome">Nome do Alimento:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Arroz Integral, Frango Grelhado" required>
+                </div>
+
+                <div>
+                    <label for="refeicao">Tipo de Refeição:</label>
+                    <select id="refeicao" name="refeicao" required>
+                        <option value="">-- Selecione uma opção --</option>
+                        <option value="cafe-manha">Café da Manhã</option>
+                        <option value="almoco">Almoço</option>
+                        <option value="lanche">Lanche da Tarde</option>
+                        <option value="jantar">Jantar</option>
+                        <option value="ceia">Ceia</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="quantidade">Quantidade (g ou ml):</label>
+                    <input type="number" id="quantidade" name="quantidade" min="1" placeholder="Ex: 150" required>
+                </div>
+
+                <div>
+                    <label for="calorias">Calorias (kcal):</label>
+                    <input type="number" id="calorias" name="calorias" min="0" placeholder="Ex: 200">
+                </div>
+
+                <div>
+                    <label for="categoria">Grupo Alimentar:</label>
+                    <select id="categoria" name="categoria">
+                        <option value="proteinas">Proteínas</option>
+                        <option value="carboidratos">Carboidratos</option>
+                        <option value="gorduras">Gorduras</option>
+                        <option value="frutas-vegetais">Frutas / Vegetais</option>
+                        <option value="bebidas">Bebidas</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="observacoes">Observações (Open Food Facts):</label>
+                    <textarea id="observacoes" name="observacoes" rows="3" placeholder="Anotações adicionais ou dados buscados da API..."></textarea>
+                </div>
+
+                <button type="submit">Cadastrar Item</button>
+            </form>
+        </section>
