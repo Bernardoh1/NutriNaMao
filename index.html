@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!--Cabeçalho com o nome do sistema e menu de navegação -->
+    <!-- Cabeçalho com o nome do sistema e menu de navegação -->
     <header>
         <h1>NutriNaMão</h1>
         <p>Meu Diário Alimentar e Registro de Refeições</p>
@@ -105,4 +105,50 @@
 
                 <button type="button">Filtrar</button>
             </form>
+        </section>
+
+        <!-- Tabela com os Alimentos Cadastrados (Dados Estáticos de Exemplo) -->
+        <section id="listagem">
+            <h2>Alimentos Registrados Hoje</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Alimento</th>
+                        <th>Refeição</th>
+                        <th>Qtd (g/ml)</th>
+                        <th>Calorias</th>
+                        <th>Grupo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="assets/img/frango.jpg" alt="Peito de frango" width="40"></td>
+                        <td>Peito de Frango Grelhado</td>
+                        <td>Almoço</td>
+                        <td>150g</td>
+                        <td>248 kcal</td>
+                        <td>Proteínas</td>
+                        <td>
+                            <button type="button">Ver detalhes</button>
+                            <button type="button">Editar</button>
+                            <button type="button">Excluir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/img/banana.jpg" alt="Banana" width="40"></td>
+                        <td>Banana Prata</td>
+                        <td>Lanche da Tarde</td>
+                        <td>100g</td>
+                        <td>89 kcal</td>
+                        <td>Frutas / Vegetais</td>
+                        <td>
+                            <button type="button">Ver detalhes</button>
+                            <button type="button">Editar</button>
+                            <button type="button">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
