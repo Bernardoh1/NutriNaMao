@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Cabeçalho com o nome do sistema e menu de navegação -->
+    <!--Cabeçalho com o nome do sistema e menu de navegação -->
     <header>
         <h1>NutriNaMão</h1>
         <p>Meu Diário Alimentar e Registro de Refeições</p>
@@ -72,5 +72,37 @@
                 </div>
 
                 <button type="submit">Cadastrar Item</button>
+            </form>
+        </section>
+        <!-- Seção para Pesquisa, Filtro e Ordenação -->
+        <section id="controles">
+            <h2>Buscar e Filtrar Refeições</h2>
+            <form action="#" method="get">
+                <div>
+                    <label for="pesquisa">Pesquisar:</label>
+                    <input type="search" id="pesquisa" name="pesquisa" placeholder="Nome do alimento...">
+                </div>
+
+                <div>
+                    <label for="filtro-refeicao">Filtrar por Refeição:</label>
+                    <select id="filtro-refeicao" name="filtro-refeicao">
+                        <option value="todas">Todas</option>
+                        <option value="cafe-manha">Café da Manhã</option>
+                        <option value="almoco">Almoço</option>
+                        <option value="lanche">Lanche</option>
+                        <option value="jantar">Jantar</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="ordenacao">Ordenar por:</label>
+                    <select id="ordenacao" name="ordenacao">
+                        <option value="nome-asc">Nome (A-Z)</option>
+                        <option value="calorias-desc">Mais calóricos</option>
+                        <option value="calorias-asc">Menos calóricos</option>
+                    </select>
+                </div>
+
+                <button type="button">Filtrar</button>
             </form>
         </section>
