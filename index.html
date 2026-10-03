@@ -42,8 +42,8 @@
       <p>Você já completou 68% da meta de hoje. Continue registrando para manter sua sequência.</p>
       
       <div>
-        <a href="#cadastro">+ Registrar refeição</a>
-        <button type="button">Ver meu progresso</button>
+        <a type="button" href="#cadastro">+ Registrar refeição</a>
+        <a type="button" href="#metricas">Ver meu progresso</a>
       </div>
 
       <div>
@@ -56,7 +56,7 @@
     </section>
 
     <!-- MÉTRICAS / STATUS DIÁRIO -->
-    <section>
+    <section id="metricas">
       <h2>Métricas Diárias</h2>
       
       <!-- Calorias -->
@@ -98,3 +98,84 @@
         <li><button type="button">Mix de castanhas 30 g · 174 kcal</button></li>
       </ul>
     </section>
+
+    <!-- FORMULÁRIO DE NOVO REGISTRO -->
+    <section id="cadastro">
+      <h2>Cadastrar novo alimento</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="nome">Nome do alimento *</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex: Salada de quinoa" required>
+        </div>
+
+        <div>
+          <label for="refeicao">Tipo de refeição *</label>
+          <select id="refeicao" name="refeicao" required>
+            <option value="">Selecione a refeição</option>
+            <option value="almoco">Almoço</option>
+            <option value="cafe">Café da Manhã</option>
+            <option value="lanche">Lanche</option>
+            <option value="jantar">Jantar</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="quantidade">Quantidade (g/ml) *</label>
+          <input type="number" id="quantidade" name="quantidade" placeholder="250" required>
+        </div>
+
+        <div>
+          <label for="calorias">Calorias (kcal) *</label>
+          <input type="number" id="calorias" name="calorias" placeholder="320" required>
+        </div>
+
+        <div>
+          <label for="grupo">Grupo alimentar *</label>
+          <select id="grupo" name="grupo" required>
+            <option value="">Selecione o grupo</option>
+            <option value="proteinas">Proteínas</option>
+            <option value="carboidratos">Carboidratos</option>
+            <option value="vegetais">Vegetais</option>
+            <option value="frutas">Frutas</option>
+            <option value="laticinios">Laticínios</option>
+            <option value="gorduras">Gorduras</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="observacoes">Observações / informações da API</label>
+          <input type="text" id="observacoes" name="observacoes" placeholder="Adicione detalhes do preparo, marca ou código de barras...">
+        </div>
+
+        <button type="submit">Cadastrar item</button>
+      </form>
+    </section>
+
+    <!-- REGISTRO DE REFEIÇÕES (Parte de Filtros e Busca) -->
+    <section id="listagem">
+      <h2>Registro de refeições</h2>
+      <p>4 itens encontrados</p>
+
+      <!-- Filtros e Busca -->
+      <div>
+        <form action="#" method="get">
+          <label for="busca">Buscar por nome</label>
+          <input type="search" id="busca" name="busca" placeholder="Buscar por nome...">
+
+          <select id="filtro-refeicao" name="filtro-refeicao">
+            <option value="todas">Todas as refeições</option>
+            <option value="cafe">Café da Manhã</option>
+            <option value="almoco">Almoço</option>
+            <option value="lanche">Lanche</option>
+            <option value="jantar">Jantar</option>
+          </select>
+
+          <select id="ordenacao" name="ordenacao">
+            <option value="recentes">Mais recentes</option>
+            <option value="caloricos">Mais calóricos</option>
+            <option value="alfabetica">Nome A-Z</option>
+          </select>
+
+          <button type="button">Filtrar</button>
+        </form>
+      </div>
