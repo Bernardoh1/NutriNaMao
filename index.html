@@ -22,7 +22,7 @@
         <li><a href="planejamento.html">Planejamento</a></li>
         <li><a href="refeicoes.html">Refeições</a></li>
         <li><a href="detalhes.html">Detalhes</a></li>
-        <li><a href="sobre.html">sobre</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
       </ul>
     </nav>
   </header>
@@ -42,12 +42,12 @@
       <p>Você já completou 68% da meta de hoje. Continue registrando para manter sua sequência.</p>
       
       <div>
-        <a type="button" href="#cadastro">+ Registrar refeição</a>
-        <a type="button" href="#metricas">Ver meu progresso</a>
+        <a href="#cadastro">+ Registrar refeição</a>
+        <a href="#metricas">Ver meu progresso</a>
       </div>
 
       <div>
-        <img src="assets/img/foto1.jpg" alt="Bowl colorido com vegetais frescos">
+        <img src="assets/img/foto1.jpg" alt="Bowl colorido com vegetais frescos" width="500" height="550">
         <div>
           <p>PONTUAÇÃO DIÁRIA</p>
           <p><strong>84</strong>/100</p>
@@ -179,3 +179,100 @@
           <button type="button">Filtrar</button>
         </form>
       </div>
+
+       <!-- Tabela -->
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Alimento</th>
+            <th>Refeição</th>
+            <th>Quantidade</th>
+            <th>Calorias</th>
+            <th>Grupo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <img src="assets/img/foto2.jpg" alt="Bowl de frango e quinoa" width="80" height="80">
+            </td>
+            <td><strong>Torrada com avocado</strong></td>
+            <td>Lanche</td>
+            <td>180 g</td>
+            <td><strong>326</strong> kcal</td>
+            <td>Carboidratos</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="assets/img/foto3.jpg" alt="Iogurte com frutas" width="80" height="80">
+            </td>
+            <td><strong>Iogurte com frutas</strong></td>
+            <td>Café da Manhã</td>
+            <td>240 g</td>
+            <td><strong>284</strong> kcal</td>
+            <td>Laticínios</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <img src="assets/img/foto4.jpg" alt="Torrada com avocado" width="80" height="80">
+            </td>
+             <td><strong>Torrada com avocado</strong></td>
+            <td>Lanche</td>
+            <td>180 g</td>
+            <td><strong>326</strong> kcal</td>
+            <td>Carboidratos</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <img src="assets/img/foto5.jpg" alt="Salada mediterrânea" width="80" height="80">
+            </td>
+             <td><strong>Salada mediterrânea</strong></td>
+            <td>Jantar</td>
+            <td>280 g</td>
+            <td><strong>352</strong> kcal</td>
+            <td>Vegetais</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>    
+    <!-- DETALHES DO ALIMENTO SELECIONADO -->
+    <section id="detalhes">
+      <h2>Bowl de frango e quinoa</h2>
+      <p>Almoço · 320 g · Proteínas</p>
+      <small>Dados via Open Food Facts</small>
+
+      <dl>
+        <dt>Proteínas</dt>
+        <dd>38 g</dd>
+
+        <dt>Carboidratos</dt>
+        <dd>42 g</dd>
+
+        <dt>Gorduras</dt>
+        <dd>14 g</dd>
+
+        <dt>Sódio</dt>
+        <dd>380 mg</dd>
+      </dl>
+
+      <button type="button">Editar este item</button>
+      <button type="button">Excluir este item</button>
+    </section>
