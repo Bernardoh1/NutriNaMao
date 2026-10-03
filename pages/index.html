@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriNaMão - Diário Alimentar e Registro Nutricional</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO / NAVBAR -->
+  <header>
+    <div>
+      <span>🍃</span>
+      <h1>NutriNaMão</h1>
+      <p>Diário Alimentar e Registro Nutricional</p>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="index.html">Diário</a></li>
+        <li><a href="planejamento.html">Planejamento</a></li>
+        <li><a href="refeicoes.html">Refeições</a></li>
+        <li><a href="detalhes.html">Detalhes</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+
+    <!-- BANNER DE BOAS-VINDAS -->
+    <section id="diario">
+      <div>
+        <span>12 dias de sequência</span>
+        <span>Quarta-feira, 12 de junho</span>
+      </div>
+      
+      <p>OLÁ, MARIANA</p>
+      <h2>Seu dia está ficando mais saudável.</h2>
+      <p>Você já completou 68% da meta de hoje. Continue registrando para manter sua sequência.</p>
+      
+      <div>
+        <a href="#cadastro">+ Registrar refeição</a>
+        <a href="#metricas">Ver meu progresso</a>
+      </div>
+
+      <div>
+        <img src="assets/img/foto1.jpg" alt="Bowl colorido com vegetais frescos" width="500" height="550">
+        <div>
+          <p>PONTUAÇÃO DIÁRIA</p>
+          <p><strong>84</strong>/100</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÉTRICAS / STATUS DIÁRIO -->
+    <section id="metricas">
+      <h2>Métricas Diárias</h2>
+      
+      <!-- Calorias -->
+      <article>
+        <p>Calorias consumidas</p>
+        <p><strong>1.430</strong> kcal</p>
+        <span>+8% esta semana</span>
+      </article>
+
+      <!-- Hidratação -->
+      <article>
+        <p>Hidratação</p>
+        <p><strong>1250</strong> ml</p>
+        <progress value="1250" max="2000">1250 ml</progress>
+      </article>
+
+      <!-- Proteínas -->
+      <article>
+        <p>Proteínas hoje</p>
+        <p><strong>73 g</strong></p>
+        <span>Meta 110 g</span>
+      </article>
+
+      <!-- Sequência -->
+      <article>
+        <p>Sequência atual</p>
+        <p><strong>12 dias</strong></p>
+        <span>Recorde: 18</span>
+      </article>
+    </section>
+
+    <!-- ATALHOS INTELIGENTES -->
+    <section>
+      <h2>Adicionar novamente</h2>
+      <p>Baseado nos seus registros frequentes</p>
+      <ul>
+        <li><button type="button">Café com leite 200 ml · 86 kcal</button></li>
+        <li><button type="button">Banana-prata 1 un. · 89 kcal</button></li>
+        <li><button type="button">Mix de castanhas 30 g · 174 kcal</button></li>
+      </ul>
+    </section>
+
+    <!-- FORMULÁRIO DE NOVO REGISTRO -->
+    <section id="cadastro">
+      <h2>Cadastrar novo alimento</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="nome">Nome do alimento *</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex: Salada de quinoa" required>
+        </div>
+
+        <div>
+          <label for="refeicao">Tipo de refeição *</label>
+          <select id="refeicao" name="refeicao" required>
+            <option value="">Selecione a refeição</option>
+            <option value="almoco">Almoço</option>
+            <option value="cafe">Café da Manhã</option>
+            <option value="lanche">Lanche</option>
+            <option value="jantar">Jantar</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="quantidade">Quantidade (g/ml) *</label>
+          <input type="number" id="quantidade" name="quantidade" placeholder="250" required>
+        </div>
+
+        <div>
+          <label for="calorias">Calorias (kcal) *</label>
+          <input type="number" id="calorias" name="calorias" placeholder="320" required>
+        </div>
+
+        <div>
+          <label for="grupo">Grupo alimentar *</label>
+          <select id="grupo" name="grupo" required>
+            <option value="">Selecione o grupo</option>
+            <option value="proteinas">Proteínas</option>
+            <option value="carboidratos">Carboidratos</option>
+            <option value="vegetais">Vegetais</option>
+            <option value="frutas">Frutas</option>
+            <option value="laticinios">Laticínios</option>
+            <option value="gorduras">Gorduras</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="observacoes">Observações / informações da API</label>
+          <input type="text" id="observacoes" name="observacoes" placeholder="Adicione detalhes do preparo, marca ou código de barras...">
+        </div>
+
+        <button type="submit">Cadastrar item</button>
+      </form>
+    </section>
+
+    <!-- REGISTRO DE REFEIÇÕES (Parte de Filtros e Busca) -->
+    <section id="listagem">
+      <h2>Registro de refeições</h2>
+      <p>4 itens encontrados</p>
+
+      <!-- Filtros e Busca -->
+      <div>
+        <form action="#" method="get">
+          <label for="busca">Buscar por nome</label>
+          <input type="search" id="busca" name="busca" placeholder="Buscar por nome...">
+
+          <select id="filtro-refeicao" name="filtro-refeicao">
+            <option value="todas">Todas as refeições</option>
+            <option value="cafe">Café da Manhã</option>
+            <option value="almoco">Almoço</option>
+            <option value="lanche">Lanche</option>
+            <option value="jantar">Jantar</option>
+          </select>
+
+          <select id="ordenacao" name="ordenacao">
+            <option value="recentes">Mais recentes</option>
+            <option value="caloricos">Mais calóricos</option>
+            <option value="alfabetica">Nome A-Z</option>
+          </select>
+
+          <button type="button">Filtrar</button>
+        </form>
+      </div>
+
+       <!-- Tabela -->
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Alimento</th>
+            <th>Refeição</th>
+            <th>Quantidade</th>
+            <th>Calorias</th>
+            <th>Grupo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <img src="assets/img/foto2.jpg" alt="Bowl de frango e quinoa" width="80" height="80">
+            </td>
+            <td><strong>Torrada com avocado</strong></td>
+            <td>Lanche</td>
+            <td>180 g</td>
+            <td><strong>326</strong> kcal</td>
+            <td>Carboidratos</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="assets/img/foto3.jpg" alt="Iogurte com frutas" width="80" height="80">
+            </td>
+            <td><strong>Iogurte com frutas</strong></td>
+            <td>Café da Manhã</td>
+            <td>240 g</td>
+            <td><strong>284</strong> kcal</td>
+            <td>Laticínios</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <img src="assets/img/foto4.jpg" alt="Torrada com avocado" width="80" height="80">
+            </td>
+             <td><strong>Torrada com avocado</strong></td>
+            <td>Lanche</td>
+            <td>180 g</td>
+            <td><strong>326</strong> kcal</td>
+            <td>Carboidratos</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <img src="assets/img/foto5.jpg" alt="Salada mediterrânea" width="80" height="80">
+            </td>
+             <td><strong>Salada mediterrânea</strong></td>
+            <td>Jantar</td>
+            <td>280 g</td>
+            <td><strong>352</strong> kcal</td>
+            <td>Vegetais</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>    
+    <!-- DETALHES DO ALIMENTO SELECIONADO -->
+    <section id="detalhes">
+      <h2>Bowl de frango e quinoa</h2>
+      <p>Almoço · 320 g · Proteínas</p>
+      <small>Dados via Open Food Facts</small>
+
+      <dl>
+        <dt>Proteínas</dt>
+        <dd>38 g</dd>
+
+        <dt>Carboidratos</dt>
+        <dd>42 g</dd>
+
+        <dt>Gorduras</dt>
+        <dd>14 g</dd>
+
+        <dt>Sódio</dt>
+        <dd>380 mg</dd>
+      </dl>
+
+      <button type="button">Editar este item</button>
+      <button type="button">Excluir este item</button>
+    </section>
+
+        <!-- RESUMO DIÁRIO -->
+    <section id="resumo">
+      <h3>Suas calorias</h3>
+      <p><strong>1.430</strong> kcal</p>
+      <p>68% - Meta diária: 2.100 kcal</p>
+      
+      <ul>
+        <li>Itens registrados: 4</li>
+        <li>Restante hoje: 670 kcal</li>
+        <li>Maior refeição: Almoço</li>
+      </ul>
+
+      <p>Você está no caminho certo. Mantenha variedade e equilíbrio nas próximas refeições.</p>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2026 NutriNaMão. Diário alimentar para fins educacionais.</p>
+    <p>Projeto acadêmico · Dados nutricionais: Open Food Facts API · </p>
+  </footer>
+
+</body>
+</html>
