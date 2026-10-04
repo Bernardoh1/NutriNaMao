@@ -29,4 +29,92 @@
 
   <!-- CONTEÚDO PRINCIPAL -->
   <main>
-    
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <section>
+      <p>PROGRESSO E RELATÓRIOS</p>
+      <h2>Pequenos hábitos, grandes resultados.</h2>
+      <p>Acompanhe sua consistência, entenda a distribuição dos nutrientes e veja como sua alimentação evolui ao longo do tempo.</p>
+      
+      <!-- FILTRO DE PERÍODO -->
+      <div>
+        <label for="periodo">Período:</label>
+        <select id="periodo" name="periodo">
+          <option value="7dias" selected>Últimos 7 dias</option>
+          <option value="30dias">Últimos 30 dias</option>
+          <option value="ano">Este ano</option>
+        </select>
+      </div>
+    </section>
+    <!-- MÉTRICAS / CARDS DE RESUMO -->
+    <section>
+      <h2>Resumo Geral</h2>
+
+      <!-- Média Diária -->
+      <article>
+        <p>MÉDIA DIÁRIA</p>
+        <p><strong>1.842 kcal</strong></p>
+        <span>- 6% vs. semana anterior</span>
+      </article>
+
+      <!-- Dias Registrados -->
+      <article>
+        <p>DIAS REGISTRADOS</p>
+        <p><strong>6 de 7</strong></p>
+        <span>Melhor sequência: 12 dias</span>
+      </article>
+
+      <!-- Meta Atingida -->
+      <article>
+        <p>META ATINGIDA</p>
+        <p><strong>82%</strong></p>
+        <span>+ 4% este mês</span>
+      </article>
+
+      <!-- Água -->
+      <article>
+        <p>ÁGUA</p>
+        <p><strong>1,9 L</strong></p>
+        <span>Meta diária: 2,2 L</span>
+      </article>
+    </section>
+
+    <!-- GRÁFICOS DE CONSUMO E DISTRIBUIÇÃO -->
+    <section>
+
+      <!-- Consumo Semanal -->
+      <article>
+        <p>CONSUMO SEMANAL</p>
+        <h3>Calorias por dia</h3>
+        <span>Meta: 2.100 kcal</span>
+
+        <ul>
+          <li>Seg: <strong>1428 kcal</strong></li>
+          <li>Ter: <strong>1722 kcal</strong></li>
+          <li>Qua: <strong>1596 kcal</strong></li>
+          <li>Qui: <strong>1932 kcal</strong></li>
+          <li>Sex: <strong>1302 kcal</strong></li>
+          <li>Sáb: <strong>1806 kcal</strong></li>
+          <li>Dom: <strong>1512 kcal</strong></li>
+        </ul>
+      </article>
+
+      <!-- Distribuição Média (Macronutrientes) -->
+      <article>
+        <p>DISTRIBUIÇÃO MÉDIA</p>
+        <h3>Macronutrientes</h3>
+        <span>Média 100%</span>
+
+        <dl>
+          <dt>Carboidratos</dt>
+          <dd>42%</dd>
+
+          <dt>Proteínas</dt>
+          <dd>28%</dd>
+
+          <dt>Gorduras</dt>
+          <dd>30%</dd>
+        </dl>
+      </article>
+
+    </section>
