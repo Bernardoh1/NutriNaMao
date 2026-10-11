@@ -73,3 +73,96 @@ header nav a {
 header nav a:hover {
   background-color: #cbe56a;
 }
+
+/* ---------- Área principal (grid de 2 colunas) ---------- */
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Cartões (todas as seções) ---------- */
+section {
+  background-color: #ffffff;
+  border: 2px solid #d9e4cf;
+  border-radius: 16px;
+  padding: 25px;
+}
+
+/* ---------- Bloco de abertura (primeira seção de cada página) ---------- */
+main > section:first-child {
+  background-color: #113a2a;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  padding: 40px;
+}
+
+main > section:first-child h2 {
+  color: #ffffff;
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+main > section:first-child a {
+  display: inline-block;
+  background-color: #cbe56a;
+  color: #113a2a;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px 10px 0 0;
+}
+
+/* sobre.html: foto direto dentro da seção */
+section > img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* index.html: etiquetas, foto em arco e pontuação */
+#diario span {
+  display: inline-block;
+  background-color: #cbe56a;
+  color: #113a2a;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 8px 10px 0;
+}
+
+/* grid de 2 colunas: texto na esquerda, foto na direita */
+#diario {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  column-gap: 40px;
+  align-items: center;
+}
+
+#diario > * {
+  grid-column: 1;                 /* tudo vai para a coluna da esquerda... */
+}
+
+#diario > div:last-child {
+  grid-column: 2;                 /* ...menos a foto, que vai para a direita */
+  grid-row: 1 / 6;                /* e ocupa a altura de todo o texto */
+}
+
+/* "OLÁ, MARIANA" */
+#diario > p:first-of-type {
+  color: #cbe56a;
+  font-weight: bold;
+}
+
+#diario img {
+  width: 100%;
+  border-radius: 20px;            /* cantos arredondados */
+}

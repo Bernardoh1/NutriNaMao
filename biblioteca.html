@@ -15,8 +15,8 @@
       <h1>NutriNaMão</h1>
       <p>Diário Alimentar e Registro Nutricional</p>
     </div>
-    
-    <nav>
+
+    <nav aria-label="Menu principal">
       <ul>
         <li><a href="index.html">Diário</a></li>
         <li><a href="planejamento.html">Planejamento</a></li>
@@ -39,7 +39,8 @@
 
     <!-- BARRA DE PESQUISA -->
     <section>
-      <form>
+      <h2>Buscar alimento</h2>
+      <form action="#" method="get">
         <label for="busca-alimento">Buscar na base Open Food Facts</label>
         <input type="search" id="busca-alimento" name="busca" placeholder="Digite um alimento ou marca...">
         <button type="submit">Consultar alimento</button>
@@ -48,7 +49,9 @@
 
     <!-- FILTROS DE CATEGORIAS -->
     <section>
-      <nav>
+      <h2>Categorias</h2>
+      <fieldset>
+        <legend>Filtrar alimentos por categoria</legend>
         <ul>
           <li><button type="button">Todos</button></li>
           <li><button type="button">Proteínas</button></li>
@@ -57,11 +60,11 @@
           <li><button type="button">Vegetais</button></li>
           <li><button type="button">Laticínios</button></li>
         </ul>
-      </nav>
+      </fieldset>
     </section>
 
-    <!-- LISTA DE CARDÁPIOS / ALIMENTOS -->
-    <section>
+    <!-- LISTA DE ALIMENTOS -->
+    <section class="cards">
       <h2>Alimentos Disponíveis</h2>
 
       <!-- CARD 1 -->
@@ -129,14 +132,13 @@
         <p>Proteína: 5,3 g</p>
         <a href="index.html#cadastro">+ Adicionar ao diário</a>
       </article>
-
     </section>
 
   </main>
-  
+
   <!-- RODAPÉ -->
   <footer>
-    <p>© 2026 NutriNaMão. Diário alimentar para fins educacionais.</p>
+    <p>&copy; 2026 NutriNaMão. Diário alimentar para fins educacionais.</p>
     <p>Projeto acadêmico · Dados nutricionais: Open Food Facts API</p>
   </footer>
 

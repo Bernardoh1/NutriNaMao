@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NutriNaMão - Diário Alimentar e Registro Nutricional</title>
+  <title>NutriNaMão - Planejamento Semanal</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
       <h1>NutriNaMão</h1>
       <p>Diário Alimentar e Registro Nutricional</p>
     </div>
-    
-    <nav>
+
+    <nav aria-label="Menu principal">
       <ul>
         <li><a href="index.html">Diário</a></li>
         <li><a href="planejamento.html">Planejamento</a></li>
@@ -28,7 +28,7 @@
   </header>
 
   <!-- CONTEÚDO PRINCIPAL -->
-  <main> 
+  <main>
 
     <!-- CABEÇALHO DA PÁGINA -->
     <section>
@@ -40,11 +40,12 @@
 
     <!-- NAVEGAÇÃO DOS DIAS DA SEMANA -->
     <section>
-      <nav>
+      <h2>Dias da semana</h2>
+      <nav aria-label="Dias da semana">
         <ul>
           <li><button type="button">SEG 10</button></li>
           <li><button type="button">TER 11</button></li>
-          <li><button type="button"><strong>QUA 12</strong></button></li>
+          <li><button type="button" aria-current="date"><strong>QUA 12</strong></button></li>
           <li><button type="button">QUI 13</button></li>
           <li><button type="button">SEX 14</button></li>
           <li><button type="button">SÁB 15</button></li>
@@ -56,37 +57,37 @@
     <!-- PLANO DO DIA -->
     <section>
       <p>QUARTA-FEIRA</p>
-      <h3>Plano do dia</h3>
+      <h2>Plano do dia</h2>
       <span>1.600 kcal previstas</span>
 
       <article>
-        <time>07:30</time>
+        <time datetime="07:30">07:30</time>
         <span>Café da manhã</span>
-        <h4>Overnight oats com banana</h4>
+        <h3>Overnight oats com banana</h3>
         <span>380 kcal</span>
         <button type="button">Editar</button>
       </article>
 
       <article>
-        <time>12:30</time>
+        <time datetime="12:30">12:30</time>
         <span>Almoço</span>
-        <h4>Frango grelhado, quinoa e legumes</h4>
+        <h3>Frango grelhado, quinoa e legumes</h3>
         <span>540 kcal</span>
         <button type="button">Editar</button>
       </article>
 
       <article>
-        <time>16:00</time>
+        <time datetime="16:00">16:00</time>
         <span>Lanche</span>
-        <h4>Iogurte, frutas e granola</h4>
+        <h3>Iogurte, frutas e granola</h3>
         <span>260 kcal</span>
         <button type="button">Editar</button>
       </article>
 
       <article>
-        <time>20:00</time>
+        <time datetime="20:00">20:00</time>
         <span>Jantar</span>
-        <h4>Sopa de legumes com torradas</h4>
+        <h3>Sopa de legumes com torradas</h3>
         <span>420 kcal</span>
         <button type="button">Editar</button>
       </article>
@@ -96,25 +97,25 @@
     <aside>
       <!-- META PLANEJADA -->
       <section>
-        <h3>META PLANEJADA</h3>
+        <h2>Meta planejada</h2>
         <p><strong>1.600</strong> / 2.100 kcal</p>
         <progress value="1600" max="2100">1600 kcal</progress>
 
         <dl>
           <dt>Proteínas (P)</dt>
-          <dd>96g</dd>
-          
+          <dd>96 g</dd>
+
           <dt>Carboidratos (C)</dt>
-          <dd>184g</dd>
-          
+          <dd>184 g</dd>
+
           <dt>Gorduras (G)</dt>
-          <dd>52g</dd>
+          <dd>52 g</dd>
         </dl>
       </section>
 
       <!-- LISTA DE COMPRAS -->
       <section>
-        <h3>Lista de compras</h3>
+        <h2>Lista de compras</h2>
         <span>0/6</span>
         <ul>
           <li><label><input type="checkbox"> Aveia</label></li>
@@ -131,7 +132,7 @@
 
   <!-- RODAPÉ -->
   <footer>
-    <p>© 2026 NutriNaMão. Diário alimentar para fins educacionais.</p>
+    <p>&copy; 2026 NutriNaMão. Diário alimentar para fins educacionais.</p>
     <p>Projeto acadêmico · Dados nutricionais: Open Food Facts API</p>
   </footer>
 
