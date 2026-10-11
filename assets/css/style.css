@@ -493,3 +493,131 @@ footer {
   margin-top: 40px;
   font-size: 14px;
 }
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+/* tablet */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  #metricas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* topo da index: uma coluna só, foto embaixo do texto */
+  #diario {
+    grid-template-columns: 1fr;
+  }
+
+  #diario > div:last-child {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 20px;
+  }
+
+  #diario img {
+    max-width: 380px;
+  }
+}
+
+/* celular */
+@media (max-width: 600px) {
+
+  /* menos espaço nas bordas */
+  main {
+    margin: 15px auto;
+    padding: 0 12px;
+    gap: 15px;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  h2 { font-size: 24px; }
+
+  /* cabeçalho: logo em cima e menu embaixo, com rolagem para o lado */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 15px;
+    gap: 10px;
+  }
+
+  header p {
+    display: none;
+  }
+
+  header nav {
+    width: 100%;
+  }
+
+  header nav ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  header nav a {
+    white-space: nowrap;
+    padding: 6px 14px;
+  }
+
+  /* bloco de abertura menor, com botões largos */
+  main > section:first-child {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  main > section:first-child h2 {
+    font-size: 28px;
+  }
+
+  main > section:first-child a {
+    display: block;
+    text-align: center;
+    margin: 10px 0 0 0;
+  }
+
+  /* métricas: 2 por linha; os outros cartões: 1 por linha */
+  #metricas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .cards, #cadastro form {
+    grid-template-columns: 1fr;
+  }
+
+  article {
+    padding: 14px;
+  }
+
+  p strong {
+    font-size: 22px;
+  }
+
+  /* menu dos dias do planejamento: uma linha com rolagem */
+  main nav ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  main nav button {
+    white-space: nowrap;
+  }
+
+  /* tabela com rolagem para o lado, sem espremer as colunas */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  th, td {
+    white-space: nowrap;
+  }
+}
