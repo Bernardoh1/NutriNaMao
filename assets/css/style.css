@@ -1,0 +1,33 @@
+/* ---------- Geral ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f4f8ee;
+  color: #15271d;
+}
+
+h1, h2, h3, h4 {
+  color: #113a2a;
+}
+
+h2 { font-size: 28px; margin-bottom: 10px; }
+h3 { font-size: 22px; margin-bottom: 8px; }
+h4 { font-size: 18px; } 
+
+p { margin-bottom: 8px; }
+
+ul, ol { list-style: none; }
+
+a { color: #2f7d52; }
+
+img {
+  max-width: 100%;
+  height: auto;        /* mantém a proporção da foto (sem esticar) */
+}
