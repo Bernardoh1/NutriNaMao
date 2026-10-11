@@ -393,3 +393,103 @@ td img {
   object-fit: cover;
   border-radius: 10px;
 }
+
+/* ---------- Listas de definição (dl) ---------- */
+dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 15px 0;
+}
+
+dt, dd {
+  padding: 8px 0;
+  border-bottom: 1px solid #d9e4cf;
+}
+
+dd {
+  font-weight: bold;
+  text-align: right;
+  color: #113a2a;
+}
+
+/* ---------- Detalhes e resumo (index) ---------- */
+#detalhes small {
+  display: inline-block;
+  background-color: #e9f3bf;
+  padding: 2px 12px;
+  border-radius: 12px;
+}
+
+#resumo {
+  background-color: #e9f3bf;
+  border-color: #e9f3bf;
+}
+
+#resumo ul {
+  display: block;
+  margin-top: 12px;
+}
+
+#resumo li {
+  background: none;
+  border-radius: 0;
+  padding: 6px 0;
+  border-bottom: 1px solid #c5d98a;
+}
+
+/* ---------- Planejamento: meta e lista de compras lado a lado ---------- */
+aside {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+aside section {
+  flex: 1 1 250px;
+}
+
+aside ul {
+  display: block;
+}
+
+aside li {
+  background: none;
+  padding: 6px 0;
+  border-radius: 0;
+}
+
+aside label {
+  font-weight: normal;
+  margin: 0;
+}
+
+aside input {
+  width: auto;
+  margin-right: 8px;
+}
+
+/* ---------- Relatório e princípios (listas numeradas) ---------- */
+ol li {
+  background-color: #f4f8ee;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+ol li span {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2f7d52;
+}
+
+ol li p { color: #5b6d62; margin: 0; }
+
+/* ---------- Rodapé ---------- */
+footer {
+  background-color: #113a2a;
+  color: #cfe3d6;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 40px;
+  font-size: 14px;
+}
