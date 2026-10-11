@@ -31,3 +31,45 @@ img {
   max-width: 100%;
   height: auto;        /* mantém a proporção da foto (sem esticar) */
 }
+
+/* ---------- Cabeçalho e menu ---------- */
+header {
+  background-color: #ffffff;
+  border-bottom: 2px solid #d9e4cf;
+  padding: 8px 30px;
+  display: flex;                 /* flexbox: logo de um lado, menu do outro */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header span { font-size: 22px; }
+header h1 { font-size: 20px; }
+header p { font-size: 12px; color: #5b6d62; margin: 0; }
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header nav a {
+  display: block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  color: #15271d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  background-color: #cbe56a;
+}
