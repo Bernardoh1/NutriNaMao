@@ -244,3 +244,152 @@ progress {
   width: 100%;
   height: 12px;
 }
+
+/* ---------- Listas em formato de etiqueta ---------- */
+section > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+section > ul li {
+  background-color: #e9f3bf;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+section > ul li button {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: #113a2a;
+}
+
+/* ---------- Formulários ---------- */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #d9e4cf;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #ffffff;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #2f7d52;
+}
+
+#cadastro form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+#cadastro form button {
+  grid-column: 1 / -1;
+}
+
+/* filtros da lista de refeições */
+#listagem form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+#listagem label { margin: 0; }
+
+#listagem input, #listagem select {
+  width: auto;
+  flex: 1 1 180px;
+}
+
+/* ---------- Botões ---------- */
+button {
+  background-color: #ffffff;
+  color: #113a2a;
+  border: 2px solid #d9e4cf;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cbe56a;
+}
+
+/* botões principais */
+#cadastro button, #listagem form button, #relatorio button {
+  background-color: #113a2a;
+  color: #ffffff;
+  border-color: #113a2a;
+  padding: 12px 28px;
+}
+
+#cadastro button:hover, #listagem form button:hover, #relatorio button:hover {
+  background-color: #2f7d52;
+}
+
+/* botão "Excluir" (o último de cada grupo) */
+td button:last-child, #detalhes button:last-child {
+  color: #b3345a;
+}
+
+td button, #detalhes button {
+  padding: 5px 12px;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+/* menu dos dias (planejamento) */
+main nav button {
+  padding: 10px 16px;
+}
+
+main nav strong {
+  background-color: #cbe56a;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ---------- Tabelas ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table, th, td {
+  border: none;               /* tira a borda feita pelo border="1" do HTML */
+}
+
+th {
+  background-color: #f4f8ee;
+  text-align: left;
+  padding: 10px;
+  color: #5b6d62;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #d9e4cf;
+}
+
+td img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
