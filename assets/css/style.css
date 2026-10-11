@@ -166,3 +166,81 @@ section > img {
   width: 100%;
   border-radius: 20px;            /* cantos arredondados */
 }
+
+/* cartão da pontuação, embaixo da foto */
+#diario div div {
+  display: block;
+  background-color: #ffffff;
+  color: #113a2a;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+#diario div div p { color: #5b6d62; margin: 0; }
+
+/* ---------- Números em destaque ---------- */
+p strong {
+  font-size: 26px;
+  color: #113a2a;
+}
+
+/* ---------- Cartões pequenos (article) ---------- */
+article {
+  background-color: #f4f8ee;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+article p { color: #5b6d62; }
+
+article span, time {
+  display: inline-block;
+  background-color: #e9f3bf;
+  color: #113a2a;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+article h4 { margin: 8px 0; }
+
+article button { margin-top: 8px; }
+
+/* lista dentro do cartão (gráficos de calorias) */
+article li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #d9e4cf;
+}
+
+/* index.html: métricas em grid de 4 colunas */
+#metricas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+#metricas h2 { grid-column: 1 / -1; }
+
+#metricas article { margin-bottom: 0; }
+
+/* classe opcional: cartões lado a lado (veja instruções) */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.cards h2 { grid-column: 1 / -1; }
+
+.cards article { margin-bottom: 0; }
+
+/* ---------- Barra de progresso ---------- */
+progress {
+  width: 100%;
+  height: 12px;
+}
