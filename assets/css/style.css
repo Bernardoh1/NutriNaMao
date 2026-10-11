@@ -1,3 +1,14 @@
+/* =========================================================
+   NutriNaMão - CSS simples
+   Usa só: seletores de tag, id e descendente, flexbox, grid
+   e media query. Funciona com o HTML atual.
+   Cores usadas:
+     verde escuro  #113a2a    verde      #2f7d52
+     limão         #cbe56a    limão claro #e9f3bf
+     fundo         #f4f8ee    borda      #d9e4cf
+     texto         #15271d    cinza      #5b6d62
+   ========================================================= */
+
 /* ---------- Geral ---------- */
 * {
   margin: 0;
@@ -19,7 +30,7 @@ h1, h2, h3, h4 {
 
 h2 { font-size: 28px; margin-bottom: 10px; }
 h3 { font-size: 22px; margin-bottom: 8px; }
-h4 { font-size: 18px; } 
+h4 { font-size: 18px; }
 
 p { margin-bottom: 8px; }
 
@@ -29,7 +40,7 @@ a { color: #2f7d52; }
 
 img {
   max-width: 100%;
-  height: auto;        /* mantém a proporção da foto (sem esticar) */
+  height: auto;       /* mantém a proporção da foto (sem esticar) */
 }
 
 /* ---------- Cabeçalho e menu ---------- */
@@ -74,7 +85,7 @@ header nav a:hover {
   background-color: #cbe56a;
 }
 
-/* ---------- Área principal (grid de 2 colunas) ---------- */
+/* ---------- Área principal (blocos um embaixo do outro) ---------- */
 main {
   max-width: 1100px;
   margin: 30px auto;
@@ -127,7 +138,7 @@ section > img {
   margin-top: 20px;
 }
 
-/* index.html: etiquetas, foto em arco e pontuação */
+/* index.html: etiquetas, foto e pontuação */
 #diario span {
   display: inline-block;
   background-color: #cbe56a;
@@ -205,7 +216,10 @@ article span, time {
   font-weight: bold;
 }
 
-article h4 { margin: 8px 0; }
+article h3, article h4 {
+  font-size: 20px;
+  margin: 8px 0;
+}
 
 article button { margin-top: 8px; }
 
@@ -302,16 +316,36 @@ input:focus, select:focus {
 #listagem form {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
   margin: 15px 0;
 }
 
-#listagem label { margin: 0; }
-
-#listagem input, #listagem select {
-  width: auto;
+/* cada rótulo + campo fica dentro de uma div */
+#listagem form div {
   flex: 1 1 180px;
+}
+
+/* ---------- Filtros agrupados (biblioteca) ---------- */
+fieldset {
+  border: none;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+fieldset ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* foto dentro dos cartões */
+article > img {
+  border-radius: 12px;
+  margin-bottom: 8px;
 }
 
 /* ---------- Botões ---------- */
@@ -500,10 +534,6 @@ footer {
 
 /* tablet */
 @media (max-width: 900px) {
-  main {
-    grid-template-columns: 1fr;
-  }
-
   #metricas {
     grid-template-columns: repeat(2, 1fr);
   }
