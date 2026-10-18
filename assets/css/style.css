@@ -1,15 +1,3 @@
-/* =========================================================
-   NutriNaMão - CSS simples
-   Usa só: seletores de tag, id e descendente, flexbox, grid
-   e media query. Funciona com o HTML atual.
-   Cores usadas:
-     verde escuro  #113a2a    verde      #2f7d52
-     limão         #cbe56a    limão claro #e9f3bf
-     fundo         #f4f8ee    borda      #d9e4cf
-     texto         #15271d    cinza      #5b6d62
-   ========================================================= */
-
-/* ---------- Geral ---------- */
 * {
   margin: 0;
   padding: 0;
