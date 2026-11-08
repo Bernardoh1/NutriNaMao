@@ -516,6 +516,74 @@ footer {
   font-size: 14px;
 }
 
+/* faz o atributo hidden esconder de verdade */
+[hidden] { display: none !important; }
+ 
+/* ---------- Mensagem de feedback (aparece no canto da tela) ---------- */
+.mensagem {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  max-width: 340px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(17, 58, 42, 0.18);
+}
+ 
+.mensagem-sucesso {
+  background-color: #e9f3bf;
+  color: #113a2a;
+  border: 2px solid #cbe56a;
+}
+ 
+.mensagem-erro {
+  background-color: #fdeaea;
+  color: #a12626;
+  border: 2px solid #f2b8b8;
+}
+ 
+/* ---------- Formulário: observações ocupa a linha toda ---------- */
+#cadastro form div:last-of-type {
+  grid-column: 1 / -1;
+}
+ 
+/* botão "Cancelar edição" com visual secundário */
+#cadastro #botao-cancelar {
+  background-color: #ffffff;
+  color: #113a2a;
+  border-color: #d9e4cf;
+}
+ 
+#cadastro #botao-cancelar:hover {
+  background-color: #cbe56a;
+}
+ 
+/* ---------- Biblioteca: campos e botão dentro dos cards ---------- */
+.cards article label {
+  margin-top: 8px;
+  font-size: 14px;
+}
+ 
+.cards article button {
+  width: 100%;
+  margin-top: 12px;
+  background-color: #113a2a;
+  color: #ffffff;
+  border-color: #113a2a;
+}
+ 
+.cards article button:hover {
+  background-color: #2f7d52;
+}
+ 
+#status-busca {
+  margin-top: 10px;
+  color: #5b6d62;
+}
+ 
+
 /* =========================================================
    RESPONSIVIDADE
    ========================================================= */
