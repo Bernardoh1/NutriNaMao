@@ -101,6 +101,130 @@ function numeroOuZero(valor) {
   return isNaN(n) ? 0 : n;
 }
 
+// =========================================================
+//  PÁGINA: DIÁRIO (index.html)
+// =========================================================
+function iniciarDiario() {
+  const form = document.getElementById('form-refeicao');
+  if (!form) return;
+
+  const tbody = document.getElementById('lista-refeicoes');
+  const campoBusca = document.getElementById('busca');
+  const filtroRefeicao = document.getElementById('filtro-refeicao');
+  const ordenacao = document.getElementById('ordenacao');
+  const formFiltros = document.getElementById('form-filtros');
+  const botaoSubmit = document.getElementById('botao-submit');
+  const botaoCancelar = document.getElementById('botao-cancelar');
+  const tituloForm = document.getElementById('titulo-form');
+
+  // ----- Listagem (com busca + filtro + ordenação) -----
+  function obterListaVisivel() {
+    const termo = normalizar(campoBusca.value);
+    const refeicaoEscolhida = filtroRefeicao.value;
+
+    let lista = refeicoes.filter(item => {
+      const bateNome = normalizar(item.nome).includes(termo);
+      const bateRefeicao = refeicaoEscolhida === 'todas' || item.refeicao === refeicaoEscolhida;
+      return bateNome && bateRefeicao;
+    });
+
+    switch (ordenacao.value) {
+      case 'caloricos':
+        lista.sort((a, b) => b.calorias - a.calorias);
+        break;
+      case 'alfabetica':
+        lista.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+        break;
+      default: // recentes
+        lista.sort((a, b) => b.criadoEm - a.criadoEm);
+    }
+    return lista;
+  }
+
+  function renderizarLista() {
+    const lista = obterListaVisivel();
+    tbody.innerHTML = '';
+
+    if (lista.length === 0) {
+      const linha = criar('tr', {}, [
+        criar('td', { colspan: '7', texto: 'Nenhum item encontrado.' })
+      ]);
+      tbody.append(linha);
+    }
+
+    lista.forEach(item => {
+      const celulaFoto = criar('td');
+      if (item.foto) {
+        celulaFoto.append(criar('img', { src: item.foto, alt: item.nome, width: '80', height: '80' }));
+      } else {
+        celulaFoto.textContent = '🍽️';
+      }
+
+      const acoes = criar('td', {}, [
+        criar('button', { type: 'button', texto: 'Detalhes', onclick: () => mostrarDetalhes(item.id) }),
+        criar('button', { type: 'button', texto: 'Editar', onclick: () => iniciarEdicao(item.id) }),
+        criar('button', { type: 'button', texto: 'Excluir', onclick: () => excluir(item.id) })
+      ]);
+
+      const linha = criar('tr', {}, [
+        celulaFoto,
+        criar('td', {}, [criar('strong', { texto: item.nome })]),
+        criar('td', { texto: NOMES_REFEICAO[item.refeicao] || item.refeicao }),
+        criar('td', { texto: formatarNumero(item.quantidade) + ' g' }),
+        criar('td', {}, [criar('strong', { texto: formatarNumero(item.calorias) }), ' kcal']),
+        criar('td', { texto: NOMES_GRUPO[item.grupo] || item.grupo }),
+        acoes
+      ]);
+      tbody.append(linha);
+    });
+
+    document.getElementById('contador').textContent =
+      lista.length + (lista.length === 1 ? ' item encontrado' : ' itens encontrados');
+
+    atualizarResumo();
+  }
+
+  // ----- Resumo / métricas -----
+  function atualizarResumo() {
+    const total = refeicoes.reduce((soma, item) => soma + item.calorias, 0);
+    const proteinas = refeicoes.reduce((soma, item) => soma + (item.proteinas || 0), 0);
+    const percentual = Math.min(Math.round((total / META_CALORIAS) * 100), 999);
+    const restante = Math.max(META_CALORIAS - total, 0);
+
+    // maior refeição (por calorias somadas)
+    const porRefeicao = {};
+    refeicoes.forEach(item => {
+      porRefeicao[item.refeicao] = (porRefeicao[item.refeicao] || 0) + item.calorias;
+    });
+    let maior = '-';
+    let maiorValor = 0;
+    for (const chave in porRefeicao) {
+      if (porRefeicao[chave] > maiorValor) {
+        maiorValor = porRefeicao[chave];
+        maior = NOMES_REFEICAO[chave] || chave;
+      }
+    }
+
+    definirTexto('resumo-total', formatarNumero(total));
+    definirTexto('resumo-percentual', percentual + '% - Meta diária: ' + formatarNumero(META_CALORIAS) + ' kcal');
+    definirTexto('resumo-itens', 'Itens registrados: ' + refeicoes.length);
+    definirTexto('resumo-restante', 'Restante hoje: ' + formatarNumero(restante) + ' kcal');
+    definirTexto('resumo-maior', 'Maior refeição: ' + maior);
+    definirTexto('metrica-calorias', formatarNumero(total));
+    definirTexto('metrica-proteinas', formatarNumero(proteinas) + ' g');
+    definirTexto('banner-percentual', 'Você já completou ' + percentual + '% da meta de hoje. Continue registrando para manter sua sequência.');
+  }
+
+  function definirTexto(id, texto) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = texto;
+  }
+
+  document.getElementById('detalhes').hidden = true;
+  renderizarLista();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   carregar();
+  iniciarDiario();
 });
