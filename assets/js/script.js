@@ -219,6 +219,63 @@ function iniciarDiario() {
     const el = document.getElementById(id);
     if (el) el.textContent = texto;
   }
+// ----- Cadastro / edição -----
+  function lerFormulario() {
+    return {
+      nome: document.getElementById('nome').value.trim(),
+      refeicao: document.getElementById('refeicao').value,
+      quantidade: parseFloat(document.getElementById('quantidade').value),
+      calorias: parseFloat(document.getElementById('calorias').value),
+      grupo: document.getElementById('grupo').value,
+      proteinas: numeroOuZero(document.getElementById('proteinas').value),
+      carboidratos: numeroOuZero(document.getElementById('carboidratos').value),
+      gorduras: numeroOuZero(document.getElementById('gorduras').value),
+      sodio: numeroOuZero(document.getElementById('sodio').value),
+      observacoes: document.getElementById('observacoes').value.trim()
+    };
+  }
+
+  function validar(dados) {
+    if (dados.nome.length < 2) return 'Informe o nome do alimento (mínimo 2 caracteres).';
+    if (!dados.refeicao) return 'Selecione o tipo de refeição.';
+    if (isNaN(dados.quantidade) || dados.quantidade <= 0) return 'A quantidade deve ser maior que zero.';
+    if (isNaN(dados.calorias) || dados.calorias < 0) return 'Informe as calorias (valor igual ou maior que zero).';
+    if (!dados.grupo) return 'Selecione o grupo alimentar.';
+    if (dados.proteinas < 0 || dados.carboidratos < 0 || dados.gorduras < 0 || dados.sodio < 0) {
+      return 'Os valores nutricionais não podem ser negativos.';
+    }
+    return null;
+  }
+
+  function aoEnviarFormulario(evento) {
+    evento.preventDefault();
+    const dados = lerFormulario();
+    const erro = validar(dados);
+    if (erro) {
+      mostrarMensagem(erro, 'erro');
+      return;
+    }
+
+    if (idEmEdicao !== null) {
+      const indice = refeicoes.findIndex(i => i.id === idEmEdicao);
+      if (indice >= 0) {
+        refeicoes[indice] = { ...refeicoes[indice], ...dados };
+      }
+      salvar();
+      const idEditado = idEmEdicao;
+      cancelarEdicao();
+      renderizarLista();
+      if (idSelecionado === idEditado) mostrarDetalhes(idEditado);
+      mostrarMensagem('Item atualizado com sucesso!', 'sucesso');
+    } else {
+      refeicoes.push({ id: gerarId(), criadoEm: Date.now(), foto: '', ...dados });
+      salvar();
+      form.reset();
+      renderizarLista();
+      mostrarMensagem('Item cadastrado com sucesso!', 'sucesso');
+    }
+  }
+form.addEventListener('submit', aoEnviarFormulario);
 
   document.getElementById('detalhes').hidden = true;
   renderizarLista();
