@@ -314,8 +314,38 @@ function iniciarDiario() {
     mostrarMensagem('Item excluído.', 'sucesso');
   }
  
+  function iniciarEdicao(id) {
+    const item = refeicoes.find(i => i.id === id);
+    if (!item) return;
+    idEmEdicao = id;
+    document.getElementById('nome').value = item.nome;
+    document.getElementById('refeicao').value = item.refeicao;
+    document.getElementById('quantidade').value = item.quantidade;
+    document.getElementById('calorias').value = item.calorias;
+    document.getElementById('grupo').value = item.grupo;
+    document.getElementById('proteinas').value = item.proteinas || '';
+    document.getElementById('carboidratos').value = item.carboidratos || '';
+    document.getElementById('gorduras').value = item.gorduras || '';
+    document.getElementById('sodio').value = item.sodio || '';
+    document.getElementById('observacoes').value = item.observacoes || '';
+    botaoSubmit.textContent = 'Salvar alterações';
+    tituloForm.textContent = 'Editar alimento';
+    botaoCancelar.hidden = false;
+    document.getElementById('cadastro').scrollIntoView({ behavior: 'smooth' });
+  }
+ 
+  function cancelarEdicao() {
+    idEmEdicao = null;
+    form.reset();
+    botaoSubmit.textContent = 'Cadastrar item';
+    tituloForm.textContent = 'Cadastrar novo alimento';
+    botaoCancelar.hidden = true;
+  }
+ 
   // ----- Eventos -----
   form.addEventListener('submit', aoEnviarFormulario);
+  botaoCancelar.addEventListener('click', cancelarEdicao);
+  document.getElementById('detalhes-editar').addEventListener('click', () => iniciarEdicao(idSelecionado));
   document.getElementById('detalhes-excluir').addEventListener('click', () => excluir(idSelecionado));
  
   document.getElementById('detalhes').hidden = true;
