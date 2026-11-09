@@ -15,8 +15,8 @@
       <h1>NutriNaMão</h1>
       <p>Diário Alimentar e Registro Nutricional</p>
     </div>
-    
-    <nav>
+
+    <nav aria-label="Menu principal">
       <ul>
         <li><a href="index.html">Diário</a></li>
         <li><a href="planejamento.html">Planejamento</a></li>
@@ -35,7 +35,7 @@
       <p>PROGRESSO E RELATÓRIOS</p>
       <h2>Pequenos hábitos, grandes resultados.</h2>
       <p>Acompanhe sua consistência, entenda a distribuição dos nutrientes e veja como sua alimentação evolui ao longo do tempo.</p>
-      
+
       <!-- FILTRO DE PERÍODO -->
       <div>
         <label for="periodo">Período:</label>
@@ -45,61 +45,64 @@
           <option value="ano">Este ano</option>
         </select>
       </div>
+      <p id="aviso-periodo" hidden></p>
     </section>
-    <!-- MÉTRICAS / CARDS DE RESUMO -->
-    <section>
+
+    <!-- MÉTRICAS / CARDS DE RESUMO (valores calculados pelo JavaScript) -->
+    <section class="cards">
       <h2>Resumo Geral</h2>
 
-      <!-- Média Diária -->
+      <!-- Média diária -->
       <article>
         <p>MÉDIA DIÁRIA</p>
-        <p><strong>1.842 kcal</strong></p>
+        <p><strong id="resumo-media">1.614 kcal</strong></p>
         <span>- 6% vs. semana anterior</span>
       </article>
 
-      <!-- Dias Registrados -->
+      <!-- Dias registrados -->
       <article>
         <p>DIAS REGISTRADOS</p>
-        <p><strong>7 de 7</strong></p>
-        <span>Melhor sequência: 12 dias</span>
+        <p><strong id="resumo-dias">7 de 7</strong></p>
+        <span>Melhor sequência: 18 dias</span>
       </article>
 
-      <!-- Meta Atingida -->
+      <!-- Meta atingida -->
       <article>
         <p>META ATINGIDA</p>
-        <p><strong>82%</strong></p>
+        <p><strong id="resumo-meta">77%</strong></p>
         <span>+ 4% este mês</span>
       </article>
 
       <!-- Água -->
       <article>
         <p>ÁGUA</p>
-        <p><strong>1,9 L</strong></p>
+        <p><strong id="resumo-agua">1,9 L</strong></p>
         <span>Meta diária: 2,2 L</span>
       </article>
     </section>
 
     <!-- GRÁFICOS DE CONSUMO E DISTRIBUIÇÃO -->
-    <section>
+    <section class="cards">
+      <h2>Consumo e distribuição</h2>
 
-      <!-- Consumo Semanal -->
+      <!-- Consumo semanal -->
       <article>
         <p>CONSUMO SEMANAL</p>
         <h3>Calorias por dia</h3>
         <span>Meta: 2.100 kcal</span>
 
-        <ul>
-          <li>Seg: <strong>1428 kcal</strong></li>
-          <li>Ter: <strong>1722 kcal</strong></li>
-          <li>Qua: <strong>1596 kcal</strong></li>
-          <li>Qui: <strong>1932 kcal</strong></li>
-          <li>Sex: <strong>1302 kcal</strong></li>
-          <li>Sáb: <strong>1806 kcal</strong></li>
-          <li>Dom: <strong>1512 kcal</strong></li>
+        <ul id="grafico-calorias">
+          <li>Seg: <strong>1.428 kcal</strong></li>
+          <li>Ter: <strong>1.722 kcal</strong></li>
+          <li>Qua: <strong>1.596 kcal</strong></li>
+          <li>Qui: <strong>1.932 kcal</strong></li>
+          <li>Sex: <strong>1.302 kcal</strong></li>
+          <li>Sáb: <strong>1.806 kcal</strong></li>
+          <li>Dom: <strong>1.512 kcal</strong></li>
         </ul>
       </article>
 
-      <!-- Distribuição Média (Macronutrientes) -->
+      <!-- Distribuição média (macronutrientes) -->
       <article>
         <p>DISTRIBUIÇÃO MÉDIA</p>
         <h3>Macronutrientes</h3>
@@ -116,22 +119,21 @@
           <dd>30%</dd>
         </dl>
       </article>
-
     </section>
-    
-<!-- RELATÓRIO NUTRICIONAL COMPLETO -->
+
+    <!-- RELATÓRIO NUTRICIONAL COMPLETO -->
     <section id="relatorio">
       <div>
         <p>RELATÓRIO NUTRICIONAL COMPLETO</p>
         <h2>Resumo de 10 a 16 de junho</h2>
         <p>Gerado a partir dos registros do diário alimentar.</p>
-        
-        <button type="button" onclick="window.print()">Imprimir relatório</button>
+
+        <button type="button" id="botao-imprimir">Imprimir relatório</button>
         <a href="#">Fechar relatório</a>
       </div>
 
       <!-- MÉTRICAS DO RELATÓRIO -->
-      <div>
+      <div class="cards">
         <article>
           <p>QUALIDADE GERAL</p>
           <p><strong>Muito boa</strong></p>
@@ -140,14 +142,14 @@
 
         <article>
           <p>CALORIAS TOTAIS</p>
-          <p><strong>12.894 kcal</strong></p>
-          <span>Média de 1.842/dia</span>
+          <p><strong id="relatorio-total">11.298 kcal</strong></p>
+          <span id="relatorio-media">Média de 1.614/dia</span>
         </article>
 
         <article>
           <p>PROTEÍNA MÉDIA</p>
-          <p><strong>94 g/dia</strong></p>
-          <span>85% da meta</span>
+          <p><strong id="relatorio-proteina">91 g/dia</strong></p>
+          <span id="relatorio-proteina-meta">83% da meta</span>
         </article>
 
         <article>
@@ -162,17 +164,17 @@
         <p>DETALHAMENTO DIÁRIO</p>
         <h3>Consumo da semana</h3>
 
-        <table border="1">
+        <table>
           <thead>
             <tr>
-              <th>DIA</th>
-              <th>CALORIAS</th>
-              <th>PROTEÍNA</th>
-              <th>ÁGUA</th>
-              <th>AVALIAÇÃO</th>
+              <th scope="col">DIA</th>
+              <th scope="col">CALORIAS</th>
+              <th scope="col">PROTEÍNA</th>
+              <th scope="col">ÁGUA</th>
+              <th scope="col">AVALIAÇÃO</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tabela-semana">
             <tr>
               <td>Segunda</td>
               <td>1.428 kcal</td>
@@ -259,8 +261,9 @@
   <!-- RODAPÉ -->
   <footer>
     <p>&copy; 2026 NutriNaMão. Diário alimentar para fins educacionais.</p>
-    <p>Projeto acadêmico · Dados nutricionais: Open Food Facts API ·</p>
+    <p>Projeto acadêmico · Dados nutricionais: Open Food Facts API</p>
   </footer>
 
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
