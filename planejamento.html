@@ -30,6 +30,9 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main>
 
+    <!-- Mensagens do JavaScript (sucesso e erro) -->
+    <div id="mensagem" class="mensagem" role="status" hidden></div>
+
     <!-- CABEÇALHO DA PÁGINA -->
     <section>
       <p>PLANEJAMENTO SEMANAL</p>
@@ -43,54 +46,56 @@
       <h2>Dias da semana</h2>
       <nav aria-label="Dias da semana">
         <ul>
-          <li><button type="button">SEG 10</button></li>
-          <li><button type="button">TER 11</button></li>
-          <li><button type="button" aria-current="date"><strong>QUA 12</strong></button></li>
-          <li><button type="button">QUI 13</button></li>
-          <li><button type="button">SEX 14</button></li>
-          <li><button type="button">SÁB 15</button></li>
-          <li><button type="button">DOM 16</button></li>
+          <li><button type="button" data-dia="seg" aria-pressed="false">SEG 10</button></li>
+          <li><button type="button" data-dia="ter" aria-pressed="false">TER 11</button></li>
+          <li><button type="button" data-dia="qua" class="ativo" aria-pressed="true">QUA 12</button></li>
+          <li><button type="button" data-dia="qui" aria-pressed="false">QUI 13</button></li>
+          <li><button type="button" data-dia="sex" aria-pressed="false">SEX 14</button></li>
+          <li><button type="button" data-dia="sab" aria-pressed="false">SÁB 15</button></li>
+          <li><button type="button" data-dia="dom" aria-pressed="false">DOM 16</button></li>
         </ul>
       </nav>
     </section>
 
-    <!-- PLANO DO DIA -->
+    <!-- PLANO DO DIA (o JavaScript troca as refeições ao escolher o dia) -->
     <section>
-      <p>QUARTA-FEIRA</p>
+      <p id="plano-dia-nome">QUARTA-FEIRA</p>
       <h2>Plano do dia</h2>
-      <span>1.600 kcal previstas</span>
+      <span id="plano-kcal">1.600 kcal previstas</span>
 
-      <article>
-        <time datetime="07:30">07:30</time>
-        <span>Café da manhã</span>
-        <h3>Overnight oats com banana</h3>
-        <span>380 kcal</span>
-        <button type="button">Editar</button>
-      </article>
+      <div id="lista-plano">
+        <article>
+          <time datetime="07:30">07:30</time>
+          <span>Café da manhã</span>
+          <h3>Overnight oats com banana</h3>
+          <span>380 kcal</span>
+          <button type="button">Editar</button>
+        </article>
 
-      <article>
-        <time datetime="12:30">12:30</time>
-        <span>Almoço</span>
-        <h3>Frango grelhado, quinoa e legumes</h3>
-        <span>540 kcal</span>
-        <button type="button">Editar</button>
-      </article>
+        <article>
+          <time datetime="12:30">12:30</time>
+          <span>Almoço</span>
+          <h3>Frango grelhado, quinoa e legumes</h3>
+          <span>540 kcal</span>
+          <button type="button">Editar</button>
+        </article>
 
-      <article>
-        <time datetime="16:00">16:00</time>
-        <span>Lanche</span>
-        <h3>Iogurte, frutas e granola</h3>
-        <span>260 kcal</span>
-        <button type="button">Editar</button>
-      </article>
+        <article>
+          <time datetime="16:00">16:00</time>
+          <span>Lanche</span>
+          <h3>Iogurte, frutas e granola</h3>
+          <span>260 kcal</span>
+          <button type="button">Editar</button>
+        </article>
 
-      <article>
-        <time datetime="20:00">20:00</time>
-        <span>Jantar</span>
-        <h3>Sopa de legumes com torradas</h3>
-        <span>420 kcal</span>
-        <button type="button">Editar</button>
-      </article>
+        <article>
+          <time datetime="20:00">20:00</time>
+          <span>Jantar</span>
+          <h3>Sopa de legumes com torradas</h3>
+          <span>420 kcal</span>
+          <button type="button">Editar</button>
+        </article>
+      </div>
     </section>
 
     <!-- META PLANEJADA E LISTA DE COMPRAS -->
@@ -98,26 +103,26 @@
       <!-- META PLANEJADA -->
       <section>
         <h2>Meta planejada</h2>
-        <p><strong>1.600</strong> / 2.100 kcal</p>
-        <progress value="1600" max="2100">1600 kcal</progress>
+        <p><strong id="meta-kcal">1.600</strong> / 2.100 kcal</p>
+        <progress id="meta-barra" value="1600" max="2100">1600 kcal</progress>
 
         <dl>
           <dt>Proteínas (P)</dt>
-          <dd>96 g</dd>
+          <dd id="meta-proteinas">96 g</dd>
 
           <dt>Carboidratos (C)</dt>
-          <dd>184 g</dd>
+          <dd id="meta-carboidratos">184 g</dd>
 
           <dt>Gorduras (G)</dt>
-          <dd>52 g</dd>
+          <dd id="meta-gorduras">52 g</dd>
         </dl>
       </section>
 
       <!-- LISTA DE COMPRAS -->
       <section>
         <h2>Lista de compras</h2>
-        <span>0/6</span>
-        <ul>
+        <span id="compras-contador">0/6</span>
+        <ul id="lista-compras">
           <li><label><input type="checkbox"> Aveia</label></li>
           <li><label><input type="checkbox"> Banana</label></li>
           <li><label><input type="checkbox"> Peito de frango</label></li>
@@ -136,5 +141,6 @@
     <p>Projeto acadêmico · Dados nutricionais: Open Food Facts API</p>
   </footer>
 
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
