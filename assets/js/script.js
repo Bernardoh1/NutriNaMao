@@ -347,6 +347,10 @@ function iniciarDiario() {
   botaoCancelar.addEventListener('click', cancelarEdicao);
   document.getElementById('detalhes-editar').addEventListener('click', () => iniciarEdicao(idSelecionado));
   document.getElementById('detalhes-excluir').addEventListener('click', () => excluir(idSelecionado));
+  formFiltros.addEventListener('submit', e => { e.preventDefault(); renderizarLista(); });
+  campoBusca.addEventListener('input', renderizarLista);
+  filtroRefeicao.addEventListener('change', renderizarLista);
+  ordenacao.addEventListener('change', renderizarLista);
  
   document.getElementById('detalhes').hidden = true;
   renderizarLista();
